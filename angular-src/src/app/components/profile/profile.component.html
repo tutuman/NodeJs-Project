@@ -1,0 +1,28 @@
+  <img class = "circular--square" [src]="fullImagePath" height="300" width="300">
+<div *ngIf = "user">
+  <h2 class = "page-header">{{user.name}}</h2>
+  <ul class = "list-group">
+    <li class = "list-group-item">Username: {{user.username}}</li>
+    <li class = "list-group-item">Email: {{user.email}}</li>
+    <li class = "list-group-item">Lat: {{user.lat}}</li>
+    <li class = "list-group-item">Lng: {{user.lng}}</li>
+  </ul>
+  <ul>
+    <div class = "hobby" *ngFor = "let hobby of hobbies; let i = index">
+        {{hobby}}<button (click)="deleteHobby(i)">x</button>
+    </div>
+  </ul>
+
+  <form (submit) = "addHobby(hobby.value)">
+  <!-- <form (submit) = "onHobbySubmit()"> -->
+    <label>Add Works: </label><br />
+    <input type="text" #hobby /> <br />
+    <!-- <input type="text" [(ngModel)]="hobbies" name="hobbies" class= "form-control"> -->
+  </form>
+
+  <form (submit) = "onHobbySubmit()">
+    <input type="text" [(ngModel)]="hobbies" name="hobbies" class= "form-control">
+  </form>
+
+  <hr />
+</div>

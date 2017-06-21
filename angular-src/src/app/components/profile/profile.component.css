@@ -1,0 +1,9 @@
+.circular--square {
+  border-radius: 50%;
+  margin-left: 400px;
+}
+.hobby{
+  display: inline-block;
+  border: solid;
+  margin: 10px;
+}

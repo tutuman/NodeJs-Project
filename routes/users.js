@@ -14,7 +14,7 @@ router.post('/register', (req, res, next) =>{
 		password: req.body.password,
 		lat: req.body.lat,
 		lng: req.body.lng,
-		rating: 4
+		rating: 'five'
 	});
 
 	User.addUser(newUser, (err, user)=>{
@@ -26,20 +26,23 @@ router.post('/register', (req, res, next) =>{
 	});
 });
 
-router.post('/rate', (req, res, next) =>{
-	let newUser = new User({
+router.put('/update', passport.authenticate('jwt', {session: false}),(req, res, next) =>{
 
-		rating: req.body.rating
+		userId = req.body.rating;
+		console.log(userId);
+		// rating = req.params.rating;
+
+		// Users.findOne({_id: userId}, function(err, user){
+		// 	if(err || Object.keys(user).length<1)
+ 	// 		// throw error
+		// 	else
+		// 	//update user property and then call Users.save(user)
+		// })
+		// Users.update({_id: userId}, {$set: {rating: req.body.rating}}, function(err, result) {});
+
 	});
 
-	User.addRating(newUser, (err, user)=>{
-		if(err){
-			res.json({success: false, msg:'Failed to register User'});
-		}else{
-			res.json({success: true, msg:'User Registerd'});
-		}
-	});
-});
+
 
 
 //Authentication
