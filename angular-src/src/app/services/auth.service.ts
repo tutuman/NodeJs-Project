@@ -8,7 +8,6 @@ import { tokenNotExpired } from 'angular2-jwt';
 export class AuthService {
   authToken: any;
   user: any;
-  rating: any;
 
   constructor(private http: Http) { }
 
@@ -45,7 +44,7 @@ export class AuthService {
     headers.append('Content-Type', 'application/json');
     return this.http.put('http://localhost:3000/users/update', rating, {headers: headers})
     .map(res => res.json());
-
+//nothing here to see 
   }
   getLatLng(){
     let headers = new Headers();
